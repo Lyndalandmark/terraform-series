@@ -59,6 +59,8 @@ output "ec2_instance_publicip" {
   description = "EC2 Instance Public IP"
   value = aws_instance.class25.public_ip
 }
+resourctype.resourecename.publicip
+
 
 # Block-6: **Local Values Block**
 # Create S3 Bucket - with Input Variables & Local Values
@@ -66,9 +68,13 @@ locals {
   name = "${var.app_name}-${var.environment_name}"
 }
 bucket_name = locals.name
+Terraform Locals are named values which can be assigned and used in your code. 
+you can use locals.name instead of "${var.app_name}-${var.environment_name}"
 
 
 # Block-7: **Data sources Block**
+Data sources allow Terraform to use information defined outside of Terraform, defined by another separate Terraform configuration, or modified by functions.
+
 # Get latest AMI ID for Amazon Linux2 OS
 data "aws_ami" "amzlinux" {
   most_recent      = true
